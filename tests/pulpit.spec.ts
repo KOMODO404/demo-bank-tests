@@ -21,16 +21,18 @@ test.describe('Pulpit tests', () => {
     await page.getByRole('button', { name: 'wykonaj' }).click();
     await page.getByTestId('close-button').click();
     // Assert
-    await expect(page.locator('#show_messages')).toHaveText(`Przelew wykonany! ${expectedTransferReceiver} - ${transferAmount},00PLN - ${transferTitle}`);
+    await expect(page.locator('#show_messages')).toHaveText(
+      `Przelew wykonany! ${expectedTransferReceiver} - ${transferAmount},00PLN - ${transferTitle}`,
+    );
   });
 
   test('successful mobile top-up', async ({ page }) => {
     // Arrange
-    const url = 'https://demo-bank.vercel.app/'
-    const userId = 'Tester12'
-    const password = 'password'
-    const phoneNumber = '500 xxx xxx'
-    const topUpAmount = '50'
+    const url = 'https://demo-bank.vercel.app/';
+    const userId = 'Tester12';
+    const password = 'password';
+    const phoneNumber = '500 xxx xxx';
+    const topUpAmount = '50';
     const expecterMessage = `Doładowanie wykonane! ${topUpAmount},00PLN na numer ${phoneNumber}`;
     // Act
     await page.goto(url);
