@@ -24,7 +24,7 @@ test.describe('Pulpit tests', () => {
     await expect(page.locator('#show_messages')).toHaveText(`Przelew wykonany! ${expectedTransferReceiver} - ${transferAmount},00PLN - ${transferTitle}`);
   });
 
-  test.only('successful mobile top-up', async ({ page }) => {
+  test('successful mobile top-up', async ({ page }) => {
     // Arrange
     const url = 'https://demo-bank.vercel.app/'
     const userId = 'Tester12'
